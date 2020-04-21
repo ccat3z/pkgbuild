@@ -1,9 +1,9 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 # Contributor: pandada8 <pandada8@gmail.com>
 
-_repo="ccat3z/v2ray-core"
-pkgname=v2ray-ccat3z-git
-pkgver=4.23.1.r8.g48d0d9e1
+_repo="ccat3z/v2yogurt"
+pkgname=v2yogurt-git
+pkgver=1.0.0.r0.g65b1633
 pkgrel=1
 pkgdesc="A platform for building proxies to bypass network restrictions"
 arch=('x86_64')
@@ -11,7 +11,6 @@ url="https://github.com/${_repo}"
 license=('MIT')
 depends=('glibc' 'v2ray-domain-list-community' 'v2ray-geoip')
 makedepends=('go-pie' 'git')
-backup=(etc/v2ray/config.json)
 provides=(v2ray)
 conflicts=(v2ray)
 source=("$pkgname::git+ssh://git@github.com/${_repo}.git"
@@ -31,30 +30,14 @@ build() {
 
   go build -trimpath \
     -ldflags "-extldflags ${LDFLAGS}" \
-    -o "$srcdir"/v2ray v2ray.com/core/main
-
-  go build -trimpath \
-    -ldflags "-extldflags ${LDFLAGS}" \
-    -o "$srcdir"/v2ctl v2ray.com/core/infra/control/main
-}
-
-check() {
-  cd "$srcdir"/$pkgname
-  # go test -p 1 -tags json -v -timeout 30m v2ray.com/core/...
+    -o "$srcdir"/v2ray github.com/ccat3z/v2yogurt/cmd
 }
 
 package() {
   cd "$srcdir/$pkgname"
-  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/v2ray/LICENSE
-  install -Dm644 release/config/systemd/v2ray.service "$pkgdir"/usr/lib/systemd/system/v2ray.service
-  sed -i -e 's|/usr/bin/v2ray/v2ray|/usr/lib/v2ray/v2ray|' \
-         "$pkgdir"/usr/lib/systemd/system/v2ray.service
-  install -Dm644 release/config/*.json -t "$pkgdir"/etc/v2ray/
   install -Dm755 "$srcdir"/v2ray -t "$pkgdir"/usr/lib/v2ray/
-  install -Dm755 "$srcdir"/v2ctl -t "$pkgdir"/usr/lib/v2ray/
   install -dm755 "$pkgdir"/usr/bin
   ln -s ../lib/v2ray/v2ray "$pkgdir"/usr/bin/v2ray
-  ln -s ../lib/v2ray/v2ctl "$pkgdir"/usr/bin/v2ctl
 
   install -Dm644 "$srcdir"/v2ray.service "$pkgdir"/usr/lib/systemd/system/v2ray@.service
 }
