@@ -1,0 +1,25 @@
+# Maintainer: ccat3z <c0ldcat3z@gmail.com>
+
+pkgname=motionpro-standalone
+pkgver=1.0.54
+pkgrel=1
+pkgdesc="MotionPro standalone client"
+arch=('x86_64')
+url="https://support.arraynetworks.net/prx/001/http/supportportal.arraynetworks.net/downloads/downloads.html"
+license=('CUSTOM')
+depends=(net-tools)
+source=(
+    "${pkgname}-${pkgver}.zip::https://support.arraynetworks.net/prx/001/http/supportportal.arraynetworks.net/downloads/pkg_9_4_0_253/vpn_cmdline_linux64_v1.0.54.zip"
+    "motionpro-vpn"
+)
+sha512sums=(
+    '55d3182f3396c566a2ecb871c25478fa89fc67de49ae7a2add2a96b2afbf5a7052df5a85fccfc2ba77efeb81444a2175202b9413f2f8ffb875b2f7d219806fbb'
+    'SKIP'
+)
+
+package() {
+  cd "$srcdir"
+  install -Dm755 ./vpn_cmdline -t "$pkgdir/usr/share/$pkgname/"
+  install -Dm755 ./array_vpnc -t "$pkgdir/usr/share/$pkgname/"
+  install -Dm755 ./motionpro-vpn -t "$pkgdir/usr/bin/"
+}

@@ -1,0 +1,33 @@
+#! /bin/bash
+
+set -e
+
+CLIENT_PATH="/usr/share/motionpro-standalone"
+CLIENT=./vpn_cmdline
+ROUTES=$(ip route)
+
+faketty () {
+    script -qfec "$(printf "%q " "$@")"
+}
+
+restore_router() {
+    ip route flush table main
+    echo "$ROUTES" | (
+        while read p; do
+            ip route add $p
+        done
+    )
+}
+
+cd "$CLIENT_PATH"
+
+if [ -z "$*" ]; then
+    exec "$CLIENT" --help
+fi
+
+faketty ./vpn_cmdline "$@" | while read p; do
+    echo "$p"
+    if [[ "$p" =~ ^vpn\ is\ running\.\.\..*$ ]]; then
+        restore_router
+    fi
+done
