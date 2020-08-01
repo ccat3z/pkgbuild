@@ -3,7 +3,7 @@
 
 _repo="ccat3z/v2yogurt"
 pkgname=v2yogurt-git
-pkgver=1.0.0.r5.gd48723c
+pkgver=1.0.0.r10.gac2529e
 pkgrel=1
 pkgdesc="A platform for building proxies to bypass network restrictions"
 arch=('x86_64')
