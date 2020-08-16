@@ -1,16 +1,21 @@
 # Maintainer: yinflying <yinflying@foxmail.com>
 _proname=caj2pdf
 pkgname=caj2pdf-git
-pkgver=0.0.1
-pkgrel=2
+pkgver=0.61.7c76b98
+pkgrel=1
 pkgdesc="Convert CAJ (China Academic Journals) files to PDF"
 arch=('x86_64')
 url="https://github.com/JeziL/caj2pdf"
 license=('GPLv3')
-depends=('git' 'python3' 'mupdf-tools')
+depends=('git' 'python3' 'mupdf-tools' 'python-pypdf2')
 provides=('caj2pdf')
 source=("${_proname}::git+https://github.com/JeziL/caj2pdf.git#branch=master")
 md5sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/${_proname}"
+  echo "0.$(git rev-list --count HEAD).$(git describe --always)"
+}
 
 package() {
     # install bin file
