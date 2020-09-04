@@ -35,9 +35,9 @@ build() {
 
 package() {
   cd "$srcdir/$pkgname"
-  install -Dm755 "$srcdir"/v2ray -t "$pkgdir"/usr/lib/v2ray/
+  install -Dm755 "$srcdir"/v2ray -t "$pkgdir"/usr/share/v2ray/
   install -dm755 "$pkgdir"/usr/bin
-  ln -s ../lib/v2ray/v2ray "$pkgdir"/usr/bin/v2ray
+  ln -s /usr/share/v2ray/v2ray "$pkgdir"/usr/bin/v2ray
 
   install -Dm644 "$srcdir"/v2ray.service "$pkgdir"/usr/lib/systemd/system/v2ray@.service
 }
