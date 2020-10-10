@@ -1,11 +1,11 @@
 # Maintainer: ccat3z <c0ldcat3z@gmail.com>
 
-_kernver_base=5.7.9
+_kernver_base=5.8.10
 _pkgbase=btintel-default-address
 pkgname=${_pkgbase}-dkms
 url=https://www.kernel.org
 pkgver=${_kernver_base}
-pkgrel=2
+pkgrel=1
 pkgdesc="Allow default address when setup intel bluetooth device"
 arch=('i686' 'x86_64')
 license=('GPL')
@@ -37,10 +37,12 @@ package() {
         -i "${pkgdir}"/usr/src/${_pkgbase}-${pkgver}/dkms.conf
 }
 
-md5sums=("d4023861ba05ecb47380354511ac798f"
-         "aa80ec82a8d5d8cc4a39bc21930e8519"
-         "108a1e8f9c203f934cce21d1afbf1215"
-         "a361e3ba77f5bb3529e8cf91d7776945"
-         "fa43bd03940ddcea4cb25b9b6093f79d"
-         "2b9e24910307ae7f24f49ee52f7d3872"
-         "7bfcbbb31de44d4fcaf7d3a73f1d9181")
+md5sums=(
+    d4023861ba05ecb47380354511ac798f
+    aa80ec82a8d5d8cc4a39bc21930e8519
+    108a1e8f9c203f934cce21d1afbf1215
+    628d2d162a705b27c1103370513e2a72
+    dfc5fc5fd4ae46063430b98020d7e1da
+    2b9e24910307ae7f24f49ee52f7d3872
+    7bfcbbb31de44d4fcaf7d3a73f1d9181
+)
