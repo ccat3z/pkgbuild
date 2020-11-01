@@ -3,7 +3,7 @@
 pkgname=ath11k-qca6390-firmware-git
 url=https://github.com/kvalo/ath11k-firmware
 pkgver=r41.2d55a0a
-pkgrel=1
+pkgrel=2
 pkgdesc="Firmware files for ath11k, a mac80211 driver for Qualcomm Technologies 802.11ax devices"
 arch=('any')
 license=('custom')
@@ -16,11 +16,11 @@ pkgver() {
 }
 
 package() {
-    mkdir -p "${pkgdir}/lib/firmware/ath11k/QCA6390/hw2.0/"
+    mkdir -p "${pkgdir}/usr/lib/firmware/ath11k/QCA6390/hw2.0/"
     cp "${srcdir}/ath11k-firmware/QCA6390/hw2.0/1.0.1/WLAN.HST.1.0.1-01740-QCAHSTSWPLZ_V2_TO_X86-1/"*.bin \
-       "${pkgdir}/lib/firmware/ath11k/QCA6390/hw2.0/"
+       "${pkgdir}/usr/lib/firmware/ath11k/QCA6390/hw2.0/"
     cp "${srcdir}/ath11k-firmware/QCA6390/hw2.0/board-2.bin" \
-       "${pkgdir}/lib/firmware/ath11k/QCA6390/hw2.0/board-2.bin"
+       "${pkgdir}/usr/lib/firmware/ath11k/QCA6390/hw2.0/board-2.bin"
 }
 
 md5sums=(SKIP)
