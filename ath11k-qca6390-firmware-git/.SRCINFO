@@ -1,0 +1,13 @@
+pkgbase = ath11k-qca6390-firmware-git
+	pkgdesc = Firmware files for ath11k, a mac80211 driver for Qualcomm Technologies 802.11ax devices
+	pkgver = r41.2d55a0a
+	pkgrel = 1
+	url = https://github.com/kvalo/ath11k-firmware
+	arch = any
+	license = custom
+	depends = linux-firmware
+	source = ath11k-firmware::git+https://github.com/kvalo/ath11k-firmware.git
+	md5sums = SKIP
+
+pkgname = ath11k-qca6390-firmware-git
+
