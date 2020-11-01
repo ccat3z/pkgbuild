@@ -1,13 +1,16 @@
 # Maintainer: ccat3z <c0ldcat3z@gmail.com>
 
-pkgname=ath11k-qca6390-firmware-git
+_pkgname=ath11k-qca6390-firmware
+pkgname=${_pkgname}-git
 url=https://github.com/kvalo/ath11k-firmware
 pkgver=r41.2d55a0a
-pkgrel=2
+pkgrel=3
 pkgdesc="Firmware files for ath11k, a mac80211 driver for Qualcomm Technologies 802.11ax devices"
 arch=('any')
 license=('custom')
 depends=('linux-firmware')
+provides=(${_pkgname})
+conflicts=(${_pkgname})
 source=("ath11k-firmware::git+https://github.com/kvalo/ath11k-firmware.git")
 
 pkgver() {
