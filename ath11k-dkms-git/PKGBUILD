@@ -1,0 +1,25 @@
+# Maintainer: ccat3z <c0ldcat3z@gmail.com>
+
+pkgname=ath11k-dkms-git
+url=https://github.com/ccat3z/ath11k-dkms
+pkgver=202010281344.r0.g58e2034
+pkgrel=1
+pkgdesc="ath11k dkms moudle for linux 5.9"
+arch=('i686' 'x86_64')
+license=('GPL')
+depends=('linux-headers' 'dkms' 'ath11k-qca6390-firmware')
+source=(
+    "ath11k-dkms::git+https://github.com/ccat3z/ath11k-dkms.git"
+)
+
+pkgver() {
+  cd "$srcdir/ath11k-dkms"
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+package() {
+    mkdir -p "${pkgdir}/usr/src"
+    cp -R "${srcdir}/ath11k-dkms/ath11k" "${pkgdir}/usr/src/ath11k-${pkgver}"
+}
+
+md5sums=(SKIP)
