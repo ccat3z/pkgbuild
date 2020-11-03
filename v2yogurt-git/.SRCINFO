@@ -1,11 +1,11 @@
 pkgbase = v2yogurt-git
 	pkgdesc = A platform for building proxies to bypass network restrictions
-	pkgver = 1.0.0.r10.gac2529e
+	pkgver = 4.32.0.r20.g3bbb414e
 	pkgrel = 1
 	url = https://github.com/ccat3z/v2yogurt
 	arch = x86_64
 	license = MIT
-	makedepends = go-pie
+	makedepends = go
 	makedepends = git
 	depends = glibc
 	depends = v2ray-domain-list-community
@@ -13,9 +13,7 @@ pkgbase = v2yogurt-git
 	provides = v2ray
 	conflicts = v2ray
 	source = v2yogurt-git::git+ssh://git@github.com/ccat3z/v2yogurt.git
-	source = v2ray.service
 	sha512sums = SKIP
-	sha512sums = 79192646438bcbd13a5a88d0093b1b6d5df603a9c2241a6260babf16f9e98d75f9e04fb3a1d926eb809a81fa935d3ff47d39cc703c609dfc906146ca58272bc7
 
 pkgname = v2yogurt-git
 

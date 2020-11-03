@@ -1,43 +1,49 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 # Contributor: pandada8 <pandada8@gmail.com>
 
-_repo="ccat3z/v2yogurt"
+github_repo="ccat3z/v2yogurt"
 pkgname=v2yogurt-git
-pkgver=1.0.0.r10.gac2529e
+pkgver=4.32.0.r20.g3bbb414e
 pkgrel=1
 pkgdesc="A platform for building proxies to bypass network restrictions"
 arch=('x86_64')
-url="https://github.com/${_repo}"
+url="https://github.com/${github_repo}"
 license=('MIT')
 depends=('glibc' 'v2ray-domain-list-community' 'v2ray-geoip')
-makedepends=('go-pie' 'git')
+makedepends=('go' 'git')
 provides=(v2ray)
 conflicts=(v2ray)
-source=("$pkgname::git+ssh://git@github.com/${_repo}.git"
-        'v2ray.service')
-sha512sums=('SKIP'
-            '79192646438bcbd13a5a88d0093b1b6d5df603a9c2241a6260babf16f9e98d75f9e04fb3a1d926eb809a81fa935d3ff47d39cc703c609dfc906146ca58272bc7')
+source=("$pkgname::git+ssh://git@github.com/${github_repo}.git")
+sha512sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir"/$pkgname
+  cd $srcdir/$pkgname
 
   # cutting off 'v' prefix that presents in the git tag
   git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
-build() {
-  cd "$srcdir"/$pkgname
+prepare() {
+  cd $srcdir/$pkgname
+  sed -i 's|/usr/local/bin|/usr/bin|;s|/usr/local/etc|/etc|' release/config/systemd/system/*.service
+}
 
-  go build -trimpath \
-    -ldflags "-extldflags ${LDFLAGS}" \
-    -o "$srcdir"/v2ray github.com/ccat3z/v2yogurt/cmd
+build() {
+  cd $srcdir/$pkgname
+  export GOFLAGS="-buildmode=pie -trimpath -ldflags=-linkmode=external"
+  export CGO_LDFLAGS="${LDFLAGS}"
+  export CGO_CFLAGS="${CFLAGS}"
+  export CGO_CPPFLAGS="${CPPFLAGS}"
+  go build -o v2ray ./main
+  go build -o v2ctl ./infra/control/main
 }
 
 package() {
-  cd "$srcdir/$pkgname"
-  install -Dm755 "$srcdir"/v2ray -t "$pkgdir"/usr/share/v2ray/
-  install -dm755 "$pkgdir"/usr/bin
-  ln -s /usr/share/v2ray/v2ray "$pkgdir"/usr/bin/v2ray
-
-  install -Dm644 "$srcdir"/v2ray.service "$pkgdir"/usr/lib/systemd/system/v2ray@.service
+  cd $srcdir/$pkgname
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/v2ray/LICENSE
+  install -Dm644 release/config/systemd/system/v2ray.service "$pkgdir"/usr/lib/systemd/system/v2ray.service
+  install -Dm644 release/config/systemd/system/v2ray@.service "$pkgdir"/usr/lib/systemd/system/v2ray@.service
+  install -Dm644 release/config/*.json -t "$pkgdir"/etc/v2ray/
+  install -Dm755 v2ray -t "$pkgdir"/usr/bin/
+  install -Dm755 v2ctl -t "$pkgdir"/usr/bin/
 }
