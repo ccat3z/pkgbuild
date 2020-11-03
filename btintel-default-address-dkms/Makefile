@@ -1,1 +1,1 @@
-obj-m += btusb.o btintel.o
+obj-m += btintel.o

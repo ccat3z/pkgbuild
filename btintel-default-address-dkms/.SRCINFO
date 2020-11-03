@@ -1,6 +1,6 @@
 pkgbase = btintel-default-address-dkms
 	pkgdesc = Allow default address when setup intel bluetooth device
-	pkgver = 5.8.10
+	pkgver = 5.9.3
 	pkgrel = 1
 	url = https://www.kernel.org
 	arch = i686
@@ -10,18 +10,14 @@ pkgbase = btintel-default-address-dkms
 	depends = dkms
 	source = Makefile
 	source = dkms.conf
-	source = btintel.c::https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/plain/drivers/bluetooth/btintel.c?id=refs/tags/v5.8.10
-	source = btusb.c::https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/plain/drivers/bluetooth/btusb.c?id=refs/tags/v5.8.10
-	source = btbcm.h::https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/plain/drivers/bluetooth/btbcm.h?id=refs/tags/v5.8.10
-	source = btintel.h::https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/plain/drivers/bluetooth/btintel.h?id=refs/tags/v5.8.10
-	source = btrtl.h::https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/plain/drivers/bluetooth/btrtl.h?id=refs/tags/v5.8.10
-	md5sums = d4023861ba05ecb47380354511ac798f
-	md5sums = aa80ec82a8d5d8cc4a39bc21930e8519
-	md5sums = 108a1e8f9c203f934cce21d1afbf1215
-	md5sums = 628d2d162a705b27c1103370513e2a72
-	md5sums = dfc5fc5fd4ae46063430b98020d7e1da
-	md5sums = 2b9e24910307ae7f24f49ee52f7d3872
-	md5sums = 7bfcbbb31de44d4fcaf7d3a73f1d9181
+	source = btintel-allow-bdaddr.patch
+	source = btintel.c::https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/plain/drivers/bluetooth/btintel.c?id=refs/tags/v5.9.3
+	source = btintel.h::https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/plain/drivers/bluetooth/btintel.h?id=refs/tags/v5.9.3
+	md5sums = SKIP
+	md5sums = SKIP
+	md5sums = SKIP
+	md5sums = SKIP
+	md5sums = SKIP
 
 pkgname = btintel-default-address-dkms
 

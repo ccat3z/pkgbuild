@@ -1,0 +1,44 @@
+*** btintel.c	2020-11-03 11:42:07.026691622 +0800
+--- btintel.c~	2020-11-03 11:49:15.124824759 +0800
+***************
+*** 16,22 ****
+  
+  #include "btintel.h"
+  
+! #define VERSION "0.1"
+  
+  #define BDADDR_INTEL (&(bdaddr_t) {{0x00, 0x8b, 0x9e, 0x19, 0x03, 0x00}})
+  
+--- 16,22 ----
+  
+  #include "btintel.h"
+  
+! #define VERSION "0.1.1"
+  
+  #define BDADDR_INTEL (&(bdaddr_t) {{0x00, 0x8b, 0x9e, 0x19, 0x03, 0x00}})
+  
+*************** int btintel_check_bdaddr(struct hci_dev
+*** 47,57 ****
+  	 * fully operational, but have the danger of duplicate addresses
+  	 * and that in turn can cause problems with Bluetooth operation.
+  	 */
+! 	if (!bacmp(&bda->bdaddr, BDADDR_INTEL)) {
+! 		bt_dev_err(hdev, "Found Intel default device address (%pMR)",
+! 			   &bda->bdaddr);
+! 		set_bit(HCI_QUIRK_INVALID_BDADDR, &hdev->quirks);
+! 	}
+  
+  	kfree_skb(skb);
+  
+--- 47,57 ----
+  	 * fully operational, but have the danger of duplicate addresses
+  	 * and that in turn can cause problems with Bluetooth operation.
+  	 */
+! 	// if (!bacmp(&bda->bdaddr, BDADDR_INTEL)) {
+! 	// 	bt_dev_err(hdev, "Found Intel default device address (%pMR)",
+! 	// 		   &bda->bdaddr);
+! 	// 	set_bit(HCI_QUIRK_INVALID_BDADDR, &hdev->quirks);
+! 	// }
+  
+  	kfree_skb(skb);
+  
