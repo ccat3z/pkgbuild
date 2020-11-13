@@ -4,14 +4,13 @@ _pkgname=btintel-default-address
 pkgname=${_pkgname}-dkms
 url=https://www.kernel.org
 pkgver=5.9.3
-pkgrel=1
+pkgrel=3
 pkgdesc="Allow default address when setup intel bluetooth device"
 arch=('i686' 'x86_64')
 license=('GPL')
 depends=('linux-headers' 'dkms')
 source=("Makefile"
         "dkms.conf"
-        "btintel-allow-bdaddr.patch"
         "btintel.c::https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/plain/drivers/bluetooth/btintel.c?id=refs/tags/v${pkgver}"
         "btintel.h::https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/plain/drivers/bluetooth/btintel.h?id=refs/tags/v${pkgver}")
 	
@@ -27,16 +26,11 @@ package() {
         install -Dm644 "${srcdir}/$f" "$f"
     done
 
-    patch btintel.c < ${srcdir}/btintel-allow-bdaddr.patch
+    sed -i 's/^#define VERSION "0.1"$/#define VERSION "0.1.1"/' btintel.c
+    sed -i 's/0x00, 0x8b, 0x9e, 0x19, 0x03, 0x00/0x00, 0x00, 0x00, 0x00, 0x00, 0x00/' btintel.c
     sed -e "s/@PKGNAME@/${_pkgname}/" \
         -e "s/@PKGVER@/${pkgver}/" \
         -i dkms.conf
 }
 
-md5sums=(
-    SKIP
-    SKIP
-    SKIP
-    SKIP
-    SKIP
-)
+md5sums=(SKIP SKIP SKIP SKIP)
