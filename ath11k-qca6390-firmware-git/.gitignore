@@ -1,7 +1,0 @@
-pkg
-src
-*.c
-*.h
-*.tar.xz
-*.zst
-/ath11k-firmware
