@@ -1,14 +1,14 @@
 pkgbase = ath11k-dkms-git
 	pkgdesc = ath11k dkms moudle for linux 5.9
 	pkgver = 202010281344.r0.g58e2034
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/ccat3z/ath11k-dkms
 	arch = i686
 	arch = x86_64
 	license = GPL
 	depends = linux-headers
 	depends = dkms
-	depends = ath11k-qca6390-firmware
+	depends = linux-firmware
 	source = ath11k-dkms::git+https://github.com/ccat3z/ath11k-dkms.git
 	md5sums = SKIP
 

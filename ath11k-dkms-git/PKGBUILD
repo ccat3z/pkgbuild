@@ -3,11 +3,11 @@
 pkgname=ath11k-dkms-git
 url=https://github.com/ccat3z/ath11k-dkms
 pkgver=202010281344.r0.g58e2034
-pkgrel=1
+pkgrel=2
 pkgdesc="ath11k dkms moudle for linux 5.9"
 arch=('i686' 'x86_64')
 license=('GPL')
-depends=('linux-headers' 'dkms' 'ath11k-qca6390-firmware')
+depends=('linux-headers' 'dkms' 'linux-firmware')
 source=(
     "ath11k-dkms::git+https://github.com/ccat3z/ath11k-dkms.git"
 )
