@@ -13,6 +13,7 @@ depends=('glibc' 'v2ray-domain-list-community' 'v2ray-geoip')
 makedepends=('go' 'git')
 provides=(v2ray)
 conflicts=(v2ray)
+backup=(etc/v2ray/config.json)
 source=("$pkgname::git+ssh://git@github.com/${github_repo}.git")
 sha512sums=('SKIP')
 

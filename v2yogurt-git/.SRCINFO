@@ -12,6 +12,7 @@ pkgbase = v2yogurt-git
 	depends = v2ray-geoip
 	provides = v2ray
 	conflicts = v2ray
+	backup = etc/v2ray/config.json
 	source = v2yogurt-git::git+ssh://git@github.com/ccat3z/v2yogurt.git
 	sha512sums = SKIP
 
