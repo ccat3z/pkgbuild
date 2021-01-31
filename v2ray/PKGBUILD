@@ -1,11 +1,12 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 # Contributor: pandada8 <pandada8@gmail.com>
 
-github_repo="ccat3z/v2yogurt"
-pkgname=v2yogurt-git
-pkgver=4.32.0.r20.g3bbb414e
+github_repo="ccat3z/v2ray-core"
+pkgname=v2ray
+pkgver=4.34.0.r21.g3e091b081
 pkgrel=1
 pkgdesc="A platform for building proxies to bypass network restrictions"
+groups=('modified')
 arch=('x86_64')
 url="https://github.com/${github_repo}"
 license=('MIT')
