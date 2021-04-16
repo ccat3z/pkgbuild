@@ -1,6 +1,6 @@
 pkgbase = v2ray
 	pkgdesc = A platform for building proxies to bypass network restrictions
-	pkgver = 4.34.0.r27.g3ab1cd394
+	pkgver = 4.37.3.r33.ga82f4fab0
 	pkgrel = 1
 	url = https://github.com/ccat3z/v2ray-core
 	arch = x86_64
