@@ -9,10 +9,11 @@ debpkgver=9.3.2deepin20
 debpkgname="com.qq.im.deepin"
 pkgrel=1
 pkgdesc="Tencent QQ on Deepin Wine5(${debpkgname}) For Archlinux"
+groups=('modified')
 arch=("x86_64")
 url="https://im.qq.com/"
 license=('custom')
-depends=('p7zip' 'wine' 'wine-mono' 'wine-gecko' 'xorg-xwininfo' 'wqy-microhei' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
+depends=('p7zip' 'deepin-wine5' 'wine-mono' 'wine-gecko' 'xorg-xwininfo' 'wqy-microhei' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-gnutls')
 conflicts=('deepin-qq-im' 'deepin.com.qq.im')
 install="deepin-wine-qq.install"
 _mirror="https://cdn-package-store6.deepin.com"
@@ -21,7 +22,7 @@ source=("$_mirror/appstore/pool/appstore/c/${debpkgname}/${debpkgname}_${debpkgv
   "run.sh")
 md5sums=('5fdc20e614d945bd2ba5251420872479'
   'ff317c202b61e88c846b2c5b7384c130'
-  '94d77ee0095f51d99537d6a0624fcdef')
+  '59f00681d284005e3c0d28b5df92838a')
 
 build() {
   msg "Extracting DPKG package ..."

@@ -42,7 +42,7 @@ QQ_INSTALLER="PCQQ2021"
 QQ_INSTALLER_PATH="c:/Program Files/Tencent/$QQ_INSTALLER-$QQ_VER.exe"
 export MIME_TYPE=""
 export DEB_PACKAGE_NAME="com.qq.im.deepin"
-#export APPRUN_CMD="wine"
+export APPRUN_CMD="deepin-wine5"
 export PATCH_LOADER_ENV=""
 export FILEDLG_PLUGIN="/opt/apps/$DEB_PACKAGE_NAME/files/gtkGetFileNameDlg"
 
@@ -124,17 +124,6 @@ HelpApp()
 	echo " -d/--deepin    Switch to 'deepin-wine'"
 	echo " -h/--help      Show program help info"
 }
-
-if [ -f "$WINEPREFIX/deepin" ]; then
-    if [ "$(cat $WINEPREFIX/deepin)" = "5" ]; then
-        export APPRUN_CMD="deepin-wine5"
-    else
-        rm $WINEPREFIX/deepin
-        export APPRUN_CMD="wine"
-    fi
-else
-    export APPRUN_CMD="wine"
-fi
 
 if [ -z $1 ]; then
 	Run "$@"
