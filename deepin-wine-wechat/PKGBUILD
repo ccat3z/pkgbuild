@@ -7,11 +7,11 @@ deepinwechatver=3.2.1.154deepin8
 debpkgname="com.qq.weixin.deepin"
 pkgrel=1
 pkgdesc="Tencent WeChat on Deepin Wine(${debpkgname}) For Archlinux"
+groups=('modified')
 arch=("x86_64")
 url="https://weixin.qq.com/"
 license=('custom')
-depends=('p7zip' 'wine' 'wine-mono' 'wine-gecko' 'xorg-xwininfo' 'wqy-microhei' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-libldap')
-conflicts=('deepin-wechat')
+depends=('p7zip' 'deepin-wine5' 'wine-mono' 'wine-gecko' 'xorg-xwininfo' 'wqy-microhei' 'lib32-alsa-lib' 'lib32-alsa-plugins' 'lib32-libpulse' 'lib32-openal' 'lib32-mpg123' 'lib32-libldap')
 install="deepin-wine-wechat.install"
 _mirror="https://cdn-package-store6.deepin.com"
 source=("$_mirror/appstore/pool/appstore/c/${debpkgname}/${debpkgname}_${deepinwechatver}_i386.deb"
@@ -20,7 +20,7 @@ source=("$_mirror/appstore/pool/appstore/c/${debpkgname}/${debpkgname}_${deepinw
   "reg.patch")
 md5sums=('3246f43cdfd2a4de9597d7018cb21753'
          'a12da7974e5d50a20908e6ad01cec574'
-         '19593035c7163c9aa269a968eec11e89'
+         '014feb6c200af5e419e62a754672c412'
          'f3257f8fc9e73ea88b3a46372634f82f')
 
 build() {
