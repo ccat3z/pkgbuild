@@ -3,7 +3,7 @@
 
 github_repo="ccat3z/v2ray-core"
 pkgname=v2ray
-pkgver=4.41.0.r37.g81d9c9e5b
+pkgver=4.41.1.r38.g744e5ea3f
 pkgrel=1
 pkgdesc="A platform for building proxies to bypass network restrictions"
 groups=('modified')
