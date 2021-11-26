@@ -1,0 +1,4 @@
+/pkg
+/src
+*.zst
+l_oneapi_vtune_p_*_offline.sh
