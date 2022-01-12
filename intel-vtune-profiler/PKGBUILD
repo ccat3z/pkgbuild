@@ -1,7 +1,7 @@
 # Maintainer: ccat3z <fzhang.chn@foxmail.com>
 
 pkgname=intel-vtune-profiler
-pkgver=2021.9.0.545
+pkgver=2022.1.0.98
 pkgrel=1
 pkgdesc="Intel® VTune™ Profiler"
 arch=('x86_64')
@@ -17,7 +17,7 @@ source=(
     "file://l_oneapi_vtune_p_${pkgver}_offline.sh"
 )
 sha256sums=(
-    '55c8ac25e685f03c849bb5383da249c7caaf2138a2b57a10c8975a38fa3828bc'
+    '3b1d0c62150d8585de81344c78293a91e5df1b8f57b1d80f5e84a4abfc8d4382'
 )
 
 prepare() {

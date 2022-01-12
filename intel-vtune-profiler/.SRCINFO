@@ -1,6 +1,6 @@
 pkgbase = intel-vtune-profiler
 	pkgdesc = Intel® VTune™ Profiler
-	pkgver = 2021.9.0.545
+	pkgver = 2022.1.0.98
 	pkgrel = 1
 	url = https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler.html
 	arch = x86_64
@@ -16,7 +16,7 @@ pkgbase = intel-vtune-profiler
 	depends = glib2
 	conflicts = intel-vtune-profiler-standalone
 	options = !strip
-	source = file://l_oneapi_vtune_p_2021.9.0.545_offline.sh
-	sha256sums = 55c8ac25e685f03c849bb5383da249c7caaf2138a2b57a10c8975a38fa3828bc
+	source = file://l_oneapi_vtune_p_2022.1.0.98_offline.sh
+	sha256sums = 3b1d0c62150d8585de81344c78293a91e5df1b8f57b1d80f5e84a4abfc8d4382
 
 pkgname = intel-vtune-profiler
