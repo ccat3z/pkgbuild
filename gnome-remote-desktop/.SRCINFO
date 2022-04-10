@@ -1,17 +1,17 @@
 pkgbase = gnome-remote-desktop
 	pkgdesc = GNOME Remote Desktop server
-	pkgver = 41.2
+	pkgver = 42.0
 	pkgrel = 1
 	url = https://wiki.gnome.org/Projects/Mutter/RemoteDesktop
 	arch = x86_64
 	groups = gnome
-	groups = custom
+	groups = modified
 	license = GPL2
 	checkdepends = xorg-server-xvfb
 	checkdepends = python-dbus
 	checkdepends = python-gobject
 	checkdepends = mutter
-	checkdepends = pipewire-media-session
+	checkdepends = wireplumber
 	makedepends = git
 	makedepends = meson
 	makedepends = ffnvcodec-headers
@@ -26,7 +26,9 @@ pkgbase = gnome-remote-desktop
 	depends = dconf
 	depends = fuse3
 	depends = libxkbcommon
-	source = git+https://gitlab.gnome.org/GNOME/gnome-remote-desktop.git#commit=32c8d66ab6b5e5c6e75ba494e5e1a45d92270f83
+	depends = libepoxy
+	options = debug
+	source = git+https://gitlab.gnome.org/GNOME/gnome-remote-desktop.git#commit=252f495a0f23ca25056cc5815587255614ffdfc7
 	source = vnc_cursor.patch
 	sha256sums = SKIP
 	sha256sums = SKIP

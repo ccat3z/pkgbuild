@@ -1,13 +1,13 @@
-diff --git a/src/grd-session.c b/src/grd-session.c
-index 057bb03..99c1c01 100644
---- a/src/grd-session.c
-+++ b/src/grd-session.c
-@@ -588,7 +588,7 @@ on_screen_cast_session_proxy_acquired (GObject      *object,
-   g_variant_builder_init (&properties_builder, G_VARIANT_TYPE ("a{sv}"));
-   g_variant_builder_add (&properties_builder, "{sv}",
-                          "cursor-mode",
--                         g_variant_new_uint32 (GRD_SCREEN_CAST_CURSOR_MODE_METADATA));
-+                         g_variant_new_uint32 (GRD_SCREEN_CAST_CURSOR_MODE_EMBEDDED));
+diff --git a/src/grd-session-vnc.c b/src/grd-session-vnc.c
+index a4cb958..e064b2a 100644
+--- a/src/grd-session-vnc.c
++++ b/src/grd-session-vnc.c
+@@ -724,7 +724,7 @@ close_session_idle (gpointer user_data)
+ static void
+ grd_session_vnc_remote_desktop_session_started (GrdSession *session)
+ {
+-  grd_session_record_monitor (session, NULL, GRD_SCREEN_CAST_CURSOR_MODE_METADATA);
++  grd_session_record_monitor (session, NULL, GRD_SCREEN_CAST_CURSOR_MODE_EMBEDDED);
+ }
  
-   /* TODO: Support something other than primary monitor */
-   grd_dbus_screen_cast_session_call_record_monitor (session_proxy,
+ static void
