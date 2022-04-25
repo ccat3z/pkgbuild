@@ -29,7 +29,7 @@ pkgbase = gnome-remote-desktop
 	depends = libepoxy
 	options = debug
 	source = git+https://gitlab.gnome.org/GNOME/gnome-remote-desktop.git#commit=7b18a7fcf58d170a70788c8126e3c2e7b4c19509
-	source = vnc_cursor.patch
+	source = vnc-cursor.patch
 	sha256sums = SKIP
 	sha256sums = SKIP
 

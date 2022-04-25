@@ -14,7 +14,10 @@ checkdepends=(xorg-server-xvfb python-dbus python-gobject mutter wireplumber)
 groups=(gnome modified)
 options=(debug)
 _commit=7b18a7fcf58d170a70788c8126e3c2e7b4c19509  # tags/42.1^0
-source=("git+https://gitlab.gnome.org/GNOME/gnome-remote-desktop.git#commit=$_commit" 'vnc_cursor.patch')
+source=(
+    "git+https://gitlab.gnome.org/GNOME/gnome-remote-desktop.git#commit=$_commit"
+    vnc-cursor.patch
+)
 sha256sums=('SKIP' 'SKIP')
 
 pkgver() {
@@ -24,7 +27,7 @@ pkgver() {
 
 prepare() {
   cd $pkgname
-  patch -p1 < ../vnc_cursor.patch
+  patch -p1 < ../vnc-cursor.patch
 }
 
 build() {
