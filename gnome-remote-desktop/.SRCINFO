@@ -30,6 +30,8 @@ pkgbase = gnome-remote-desktop
 	options = debug
 	source = git+https://gitlab.gnome.org/GNOME/gnome-remote-desktop.git#commit=7b18a7fcf58d170a70788c8126e3c2e7b4c19509
 	source = vnc-cursor.patch
+	source = enable-animation.patch
+	sha256sums = SKIP
 	sha256sums = SKIP
 	sha256sums = SKIP
 
