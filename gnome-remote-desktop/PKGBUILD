@@ -16,7 +16,7 @@ options=(debug)
 _commit=73b9f00b31bc462de42e94054121052a106df521  # tags/42.3^0
 source=(
     "git+https://gitlab.gnome.org/GNOME/gnome-remote-desktop.git#commit=$_commit"
-    vnc-cursor.patch
+    cursor.patch
     enable-animation.patch
 )
 sha256sums=('SKIP' 'SKIP' 'SKIP')
@@ -28,7 +28,7 @@ pkgver() {
 
 prepare() {
   cd $pkgname
-  patch -p1 < ../vnc-cursor.patch
+  patch -p1 < ../cursor.patch
   patch -p1 < ../enable-animation.patch
 }
 
