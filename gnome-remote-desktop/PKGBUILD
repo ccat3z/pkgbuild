@@ -1,7 +1,7 @@
 # Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 
 pkgname=gnome-remote-desktop
-pkgver=42.1
+pkgver=42.3
 pkgrel=1
 pkgdesc="GNOME Remote Desktop server"
 url="https://wiki.gnome.org/Projects/Mutter/RemoteDesktop"
@@ -13,7 +13,7 @@ makedepends=(git meson ffnvcodec-headers)
 checkdepends=(xorg-server-xvfb python-dbus python-gobject mutter wireplumber)
 groups=(gnome modified)
 options=(debug)
-_commit=7b18a7fcf58d170a70788c8126e3c2e7b4c19509  # tags/42.1^0
+_commit=73b9f00b31bc462de42e94054121052a106df521  # tags/42.3^0
 source=(
     "git+https://gitlab.gnome.org/GNOME/gnome-remote-desktop.git#commit=$_commit"
     vnc-cursor.patch
