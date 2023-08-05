@@ -20,10 +20,13 @@ makedepends=(
   meson
   yelp-tools
 )
-groups=(gnome-extra)
+groups=(gnome-extra modified)
 _commit=1446ff0abc478bdd03c6665b718214d075729024  # tags/3.48.1^0
-source=("git+https://gitlab.gnome.org/GNOME/gnome-terminal.git#commit=$_commit")
-b2sums=('SKIP')
+source=("git+https://gitlab.gnome.org/GNOME/gnome-terminal.git#commit=$_commit" resize.patch)
+b2sums=(
+  'SKIP'
+  51ba721f0f0215565c1eeeb31669e4e459595eaae9e9dd69add3d3c8f2f6b48a9f3922bcc7634d89b9608578f7ce7cbd444789bc07bf6511fcdcd461176aeac8
+)
 
 pkgver() {
   cd $pkgname
@@ -32,6 +35,7 @@ pkgver() {
 
 prepare() {
   cd $pkgname
+  patch -p1 < "$srcdir/resize.patch"
 }
 
 build() {
