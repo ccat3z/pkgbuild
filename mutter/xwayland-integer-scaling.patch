@@ -1,0 +1,14 @@
+diff --git a/src/compositor/meta-shaped-texture.c b/src/compositor/meta-shaped-texture.c
+index 63f144c..81dcdd3 100644
+--- a/src/compositor/meta-shaped-texture.c
++++ b/src/compositor/meta-shaped-texture.c
+@@ -655,6 +655,9 @@ do_paint_content (MetaShapedTexture   *stex,
+         }
+     }
+ 
++  min_filter = COGL_PIPELINE_FILTER_NEAREST;
++  mag_filter = COGL_PIPELINE_FILTER_NEAREST;
++
+   ctx = clutter_backend_get_cogl_context (clutter_get_default_backend ());
+ 
+   use_opaque_region = stex->opaque_region && opacity == 255;

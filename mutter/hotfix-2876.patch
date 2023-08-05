@@ -1,0 +1,14 @@
+diff --git a/src/backends/meta-screen-cast-virtual-stream-src.c b/src/backends/meta-screen-cast-virtual-stream-src.c
+index edf6e86..275801a 100644
+--- a/src/backends/meta-screen-cast-virtual-stream-src.c
++++ b/src/backends/meta-screen-cast-virtual-stream-src.c
+@@ -193,6 +193,9 @@ actors_painted (MetaStage           *stage,
+   MetaScreenCastRecordFlag flags;
+   const cairo_region_t *redraw_clip = NULL;
+ 
++  if (!paint_context)
++      return;
++
+   flags = META_SCREEN_CAST_RECORD_FLAG_NONE;
+   redraw_clip = clutter_paint_context_get_redraw_clip (paint_context);
+   meta_screen_cast_stream_src_maybe_record_frame (src, flags, redraw_clip);
