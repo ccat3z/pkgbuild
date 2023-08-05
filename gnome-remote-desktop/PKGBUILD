@@ -37,10 +37,13 @@ checkdepends=(
   python-gobject
   wireplumber
 )
-groups=(gnome)
+groups=(gnome modified)
 _commit=9d1ee9c9458636dbe4d3326dceec81dfefef56dd  # tags/44.2^0
-source=("git+https://gitlab.gnome.org/GNOME/gnome-remote-desktop.git#commit=$_commit")
-b2sums=('SKIP')
+source=(
+  "git+https://gitlab.gnome.org/GNOME/gnome-remote-desktop.git#commit=$_commit"
+  enable-animation.patch
+)
+b2sums=('SKIP' 'SKIP')
 
 pkgver() {
   cd $pkgname
@@ -49,6 +52,8 @@ pkgver() {
 
 prepare() {
   cd $pkgname
+  patch -p1 < ../enable-animation.patch
+  sed -i 's/GRD_SCREEN_CAST_CURSOR_MODE_METADATA/GRD_SCREEN_CAST_CURSOR_MODE_EMBEDDED/g' src/grd-session-vnc.c src/grd-session-rdp.c
 }
 
 build() {
