@@ -7,7 +7,7 @@ pkgname=(
   mutter
   mutter-docs
 )
-pkgver=44.3
+pkgver=44.5
 pkgrel=1
 pkgdesc="Window manager and compositor for GNOME"
 url="https://gitlab.gnome.org/GNOME/mutter"
@@ -51,7 +51,7 @@ checkdepends=(
   wireplumber
   zenity
 )
-_commit=99d83f2985483bc192e1271665c442c7c480a588  # tags/44.3^0
+_commit=1511e6e1cdc8fa1a84f6fbbb169777ac26ba7f44  # tags/44.5^0
 source=(
   "git+https://gitlab.gnome.org/GNOME/mutter.git#commit=$_commit"
   xwayland-integer-scaling.patch
