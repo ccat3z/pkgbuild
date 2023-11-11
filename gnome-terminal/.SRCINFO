@@ -1,6 +1,6 @@
 pkgbase = gnome-terminal
 	pkgdesc = The GNOME Terminal Emulator
-	pkgver = 3.48.2
+	pkgver = 3.50.1
 	pkgrel = 1
 	url = https://wiki.gnome.org/Apps/Terminal
 	arch = x86_64
@@ -14,8 +14,9 @@ pkgbase = gnome-terminal
 	makedepends = meson
 	makedepends = yelp-tools
 	depends = gsettings-desktop-schemas
+	depends = libhandy
 	depends = vte3
-	source = git+https://gitlab.gnome.org/GNOME/gnome-terminal.git#commit=34572eea23a99f1572808d7d2b42af4c8b8b396c
+	source = git+https://gitlab.gnome.org/GNOME/gnome-terminal.git#commit=5ac3b8e4bd6fa02651b3c23cedb0a7e1cd769655
 	source = resize.patch
 	b2sums = SKIP
 	b2sums = 51ba721f0f0215565c1eeeb31669e4e459595eaae9e9dd69add3d3c8f2f6b48a9f3922bcc7634d89b9608578f7ce7cbd444789bc07bf6511fcdcd461176aeac8
