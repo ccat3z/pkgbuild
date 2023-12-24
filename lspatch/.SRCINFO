@@ -1,0 +1,14 @@
+pkgbase = lspatch
+	pkgdesc = A non-root Xposed framework extending from LSPosed
+	pkgver = 0.6
+	pkgrel = 1
+	url = https://github.com/LSPosed/LSPatch
+	arch = any
+	license = GPL
+	depends = java-runtime
+	source = lspatch-0.6.jar::https://github.com/LSPosed/LSPatch/releases/download/v0.6/jar-v0.6-398-release.jar
+	source = lspatch
+	sha256sums = c179d884cb5dda151d6066320a2cf3658b4c15160306a0af2bd4c71faf6c3540
+	sha256sums = SKIP
+
+pkgname = lspatch

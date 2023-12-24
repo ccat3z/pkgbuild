@@ -1,0 +1,23 @@
+# Maintainer: Lingfeng Zhang <fzhang.chn@outlook.com>
+
+pkgname=lspatch
+pkgver=0.6
+pkgrel=1
+pkgdesc="A non-root Xposed framework extending from LSPosed "
+arch=(any)
+url="https://github.com/LSPosed/LSPatch"
+license=('GPL')
+depends=(java-runtime)
+source=(
+    "lspatch-$pkgver.jar::https://github.com/LSPosed/LSPatch/releases/download/v0.6/jar-v0.6-398-release.jar"
+    "lspatch"
+)
+sha256sums=(
+    c179d884cb5dda151d6066320a2cf3658b4c15160306a0af2bd4c71faf6c3540
+    SKIP
+)
+
+package() {
+    install -D "$srcdir/lspatch-$pkgver.jar" "$pkgdir/usr/share/lspatch/lspatch.jar"
+    install -D "$srcdir/lspatch" "$pkgdir/usr/bin/lspatch"
+}
